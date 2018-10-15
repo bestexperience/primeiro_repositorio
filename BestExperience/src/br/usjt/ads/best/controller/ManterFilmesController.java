@@ -17,13 +17,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.usjt.ads.best.model.entity.Status;
 import br.usjt.ads.best.model.entity.Usuario;
+import br.usjt.ads.best.model.service.StatusService;
 import br.usjt.ads.best.model.service.UsuarioService;
 
 /**
  * Servlet implementation class ManterFilmesController
  */
-@WebServlet("/manterfilmes.do")
+@WebServlet("/manterdados.do")
 public class ManterFilmesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,27 +35,30 @@ public class ManterFilmesController extends HttpServlet {
 		String acao = request.getParameter("acao");
 		RequestDispatcher dispatcher;
 		UsuarioService UService = null;
+		StatusService sService = null;
 		Usuario usuario = null;
 		HttpSession session;
 		
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-		int loginV = Integer.parseInt(login);
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		
 
 		switch (acao) {
 		case "logar":
 			usuario = new Usuario();
 			UService = new UsuarioService();
-			usuario.setLogin(loginV);
+			usuario.setLogin(login);
 			usuario.setSenha(senha);
 			boolean validacao = UService.consultarLogin(usuario);
 			
 			if(validacao == true)
 			{
-				/*
+				usuario = UService.buscarUsuarioId(usuario);
 				session = request.getSession();
 				session.setAttribute("usuario", usuario);
-				*/
+				
 				dispatcher = request.getRequestDispatcher("usuario.jsp");
 				dispatcher.forward(request, response);
 				break;
@@ -61,7 +66,43 @@ public class ManterFilmesController extends HttpServlet {
 			else if(validacao == false){
 					break;
 				}
+
+		case "cadastrar":
+			usuario = new Usuario();
+			UService = new UsuarioService();
+
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+			usuario.setNome(nome);
+			usuario.setEmail(email);
+			
+			int id = UService.inserirUsuario(usuario);
+			
+			dispatcher = request.getRequestDispatcher("usuario.jsp");
+			dispatcher.forward(request, response);
+			break;
+			
+
+		case "carregarStatus":
+			
+			/*Carregando o Status*/
+			sService = new StatusService();
+			usuario = new Usuario();
+			UService = new UsuarioService();
+			ArrayList<Status> status = sService.listarStatus();
+			session = request.getSession();
+			session.setAttribute("status", status);
+			/**/
+			
+			/*Carregar id*/
+			dispatcher = request.getRequestDispatcher("novoCampeonato.jsp");
+			dispatcher.forward(request, response);
+			break;
+			
+		case "cadastrarResultadoStatus":
+			break;
 		}
+			
 		
 
 	}

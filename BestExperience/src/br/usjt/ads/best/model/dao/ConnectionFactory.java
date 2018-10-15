@@ -19,7 +19,7 @@ public class ConnectionFactory {
 
 	public static Connection getConnection() throws IOException {
 		try {
-			return DriverManager.getConnection("jdbc:mysql://localhost/futebol?"
+			return DriverManager.getConnection("jdbc:mysql://localhost/campeonato?"
 					+ "user=root&password=&useSSL=false");
 		} catch (SQLException e) {
 			e.printStackTrace();

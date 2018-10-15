@@ -16,4 +16,13 @@ public class UsuarioService {
 		boolean validacao = dao.buscarUsuario(usuario);
 		return validacao;
 	}
+	
+	public int inserirUsuario(Usuario usuario) throws IOException {
+		int id = dao.inserirUsuario(usuario);
+		return id;
+	}
+	
+	public Usuario buscarUsuarioId(Usuario usuario) throws IOException {
+		return dao.buscarUsuarioId(usuario);
+	}
 }

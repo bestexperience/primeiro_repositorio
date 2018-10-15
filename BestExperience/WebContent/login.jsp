@@ -20,13 +20,13 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-    <form action="manterfilmes.do" method="post">
+    <form action="manterdados.do" method="post">
       <div class="form-group">
         <div class="input-group">  
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
             </span>
-            <input type="number" class="form-control" id="exampleInputEmail1" name="login" placeholder="Numero do Usuario" required>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="login" placeholder="Nome de Usuario" required>
         </div>
       </div>
       <div class="form-group">

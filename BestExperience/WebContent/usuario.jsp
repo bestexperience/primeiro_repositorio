@@ -18,7 +18,11 @@
 <div id="main" class="container">
 <img src="img/usuario.png" class="rounded" alt="Cinque Terre" width="304" height="300">
   <h3>Basic Navbar Example</h3>
-  <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+  <p>${usuario.nome}</p>
+  <p>${usuario.email}</p>
+  <p>${usuario.login}</p>
+  <p>${usuario.id}</p>
+  
 </div>
 
 <script>
