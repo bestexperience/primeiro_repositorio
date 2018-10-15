@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import br.usjt.ads.best.model.dao.CampeonatoDAO;
 import br.usjt.ads.best.model.entity.Campeonato;
+import br.usjt.ads.best.model.entity.Usuario;
 
 	public class CampeonatoService {
 		private CampeonatoDAO dao;
@@ -12,8 +13,8 @@ import br.usjt.ads.best.model.entity.Campeonato;
 		dao = new CampeonatoDAO();
 	}
 	
-	public int inserirCampeonato(Campeonato campeonato) throws IOException {
-		return dao.inserirCampeonato(campeonato);
+	public int inserirCampeonato(Campeonato campeonato, Usuario usuario) throws IOException {
+		return dao.inserirCampeonato(campeonato, usuario);
 	}
 	
 	public Campeonato buscarUsuario(Campeonato campeonato) throws IOException {

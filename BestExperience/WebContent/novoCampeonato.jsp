@@ -16,28 +16,34 @@
 <body>
 	<c:import url="MenuUsuario.jsp"/>
     <div id="main">
-      <h2>Usuario #${usuario.id}</h2>
+      <h2>Campeonato</h2>
       <p>Click on the element below to open the side navigation menu, and push this content to the right.</p>
         <form action="manterdados.do" method="post">
           <div class="row">
+          
+          <div class="form-group col-md-3">
+            <label for="nome">Numero do Usuario</label>
+            <input type="text" class="form-control" id="nome" name="id" placeholder="Id usuario" value="${usuario.id}"/>
+          </div>
+          
           <div class="form-group col-md-3">
             <label for="nome">Nome do Campeonato</label>
             <input type="text" class="form-control" id="nome" name="nome_campeonato" placeholder="Entre com o nome"/>
           </div>
           </div>
-          
+          <!-- 
           <div class="row">
 	          <c:forEach var="status" items="${status}">
 	          <div class="form-group col-md-2">
-	            <label for="nome">${status.nome}</label>
+	            <label for="nome" value="${status.id}">${status.nome}</label>
 	            <input type="number" class="form-control" id="nome" name="pontos"/>
 	          </div>
 	          </c:forEach>
           </div>
-          
+           -->
           <div class="row"> 
 	          <div class="form-group col-md-8"> 
-	          	<button type="submit" class="btn btn-primary" name="acao" value="cadastrarResultadoStatus">Criar</button>
+	          	<button type="submit" class="btn btn-primary" name="acao" value="cadastrarCampeonato">Criar</button>
 	          	<button type="reset" class="btn btn-primary">Limpar</button>
 	          </div>
           </div>

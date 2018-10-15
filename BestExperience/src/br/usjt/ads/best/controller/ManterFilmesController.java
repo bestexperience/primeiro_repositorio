@@ -17,8 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.usjt.ads.best.model.entity.Campeonato;
 import br.usjt.ads.best.model.entity.Status;
 import br.usjt.ads.best.model.entity.Usuario;
+import br.usjt.ads.best.model.service.CampeonatoService;
 import br.usjt.ads.best.model.service.StatusService;
 import br.usjt.ads.best.model.service.UsuarioService;
 
@@ -36,13 +38,21 @@ public class ManterFilmesController extends HttpServlet {
 		RequestDispatcher dispatcher;
 		UsuarioService UService = null;
 		StatusService sService = null;
+		CampeonatoService cService = null;
 		Usuario usuario = null;
+		Campeonato campeonato = null;
 		HttpSession session;
 		
+		/*Usuario*/
+		String id = request.getParameter("id");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
+		
+		/*Campeonato*/
+		String nomeCampeonato = request.getParameter("nome_campeonato");
+		
 		
 
 		switch (acao) {
@@ -76,7 +86,7 @@ public class ManterFilmesController extends HttpServlet {
 			usuario.setNome(nome);
 			usuario.setEmail(email);
 			
-			int id = UService.inserirUsuario(usuario);
+			int id1 = UService.inserirUsuario(usuario);
 			
 			dispatcher = request.getRequestDispatcher("usuario.jsp");
 			dispatcher.forward(request, response);
@@ -99,7 +109,16 @@ public class ManterFilmesController extends HttpServlet {
 			dispatcher.forward(request, response);
 			break;
 			
-		case "cadastrarResultadoStatus":
+		case "cadastrarCampeonato":
+			cService = new CampeonatoService();
+			campeonato = new Campeonato();
+			usuario = new Usuario();
+			
+			campeonato.setNome(nomeCampeonato);
+			usuario.setId(Integer.parseInt(id));
+			int idCampeonato = cService.inserirCampeonato(campeonato, usuario);
+			dispatcher = request.getRequestDispatcher("usuario.jsp");
+			dispatcher.forward(request, response);
 			break;
 		}
 			
