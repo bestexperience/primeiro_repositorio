@@ -15,7 +15,7 @@
                 <li><a href="#">Informações</a></li>
 		      	<li><a href="#">Equipes</a></li>
 		      	<li><a href="dadosDoCampeonato.jsp">Dados do Campeonato</a></li>
-		      	<li><a href="#">Rodadas</a></li>
+		      	<li><a href="turnoRodadas.jsp">Rodadas</a></li>
 		      	<li><a href="#">Comissão Executiva</a></li>
 		      	<li><a href="#">Seções</a></li>
 		      	<li><a href="#">Anos Anteriores</a></li>
