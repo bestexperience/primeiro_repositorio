@@ -105,7 +105,7 @@ public class ManterFilmesController extends HttpServlet {
 			/**/
 			
 			/*Carregar id*/
-			dispatcher = request.getRequestDispatcher("novoCampeonato.jsp");
+			dispatcher = request.getRequestDispatcher("novoCampeonatoAtual.jsp");
 			dispatcher.forward(request, response);
 			break;
 			

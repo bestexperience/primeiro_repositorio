@@ -13,7 +13,7 @@ import br.usjt.ads.best.model.entity.Status;
 public class StatusDAO {
 	public ArrayList<Status> listarStatus() throws IOException {
 		ArrayList<Status> statusArray = new ArrayList<>();
-		String sql = "select id, nome from status order by nome";
+		String sql = "select id, nome from status order by id";
 
 		try (Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement pst = conn.prepareStatement(sql);
