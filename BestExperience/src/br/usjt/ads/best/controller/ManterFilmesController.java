@@ -52,6 +52,12 @@ public class ManterFilmesController extends HttpServlet {
 		
 		/*Campeonato*/
 		String nomeCampeonato = request.getParameter("nome_campeonato");
+		/*Status - Pontos*/
+		String idP1 = request.getParameter("pontos1");
+		String idP2 = request.getParameter("pontos2");
+		String idP3 = request.getParameter("pontos3");
+		String idP4 = request.getParameter("pontos4");
+		
 		
 		
 
@@ -113,10 +119,28 @@ public class ManterFilmesController extends HttpServlet {
 			cService = new CampeonatoService();
 			campeonato = new Campeonato();
 			usuario = new Usuario();
+			sService = new StatusService();
 			
 			campeonato.setNome(nomeCampeonato);
 			usuario.setId(Integer.parseInt(id));
 			int idCampeonato = cService.inserirCampeonato(campeonato, usuario);
+			
+			
+			int id10 = 0; 
+			int p1 = Integer.parseInt(idP1);
+			id10 = sService.inserirPontos(p1, idCampeonato, 1);
+			
+			int p2 = Integer.parseInt(idP2);
+			id10 = sService.inserirPontos(p2, idCampeonato, 2);
+			
+			int p3 = Integer.parseInt(idP3);
+			id10 = sService.inserirPontos(p3, idCampeonato, 3);
+			
+			int p4 = Integer.parseInt(idP4);
+			id10 = sService.inserirPontos(p4, idCampeonato, 4);
+			
+			
+			
 			dispatcher = request.getRequestDispatcher("usuario.jsp");
 			dispatcher.forward(request, response);
 			break;

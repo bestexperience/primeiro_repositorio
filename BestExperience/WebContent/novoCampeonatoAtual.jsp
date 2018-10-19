@@ -19,22 +19,21 @@
 	<c:import url="MenuUsuario.jsp"/>
 	
 	<div class="container">
-		<form id="regForm" action="" method="">
+		<form id="regForm" action="manterdados.do?acao=cadastrarCampeonato" method="post">
 		  <h1>Criar Campeonato</h1>
 		  <!-- One "tab" for each step in the form: -->
 		  <div class="tab">Nome do Campeonato
-		  	<p><input placeholder="Last name..."  readonly oninput="this.className = ''" name="lname" value="${usuario.id}" ></p>
-		    <p><input placeholder="Nome..." oninput="this.className = ''" name="fname"></p>
+		  	<p><input placeholder="Last name..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" ></p>
+		    <p><input placeholder="Nome..." oninput="this.className = ''" name="nome_campeonato"></p>
 		  </div>
+		 
 		  <div class="tab">Configurando os pontos:<br /><br/>
 		  	<c:forEach var="status" items="${status}">
 		  	 <label for="nome" value="${status.id}">${status.nome}</label>
-		  	<p><input placeholder="..." oninput="this.className = ''" name="pontos${status.id}"></p>
-		    <!--  <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-		    <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>-->
+		  	 <p><input placeholder="..." oninput="this.className = ''" name="pontos${status.id}"></p>
 		    </c:forEach>
 		  </div>
-		  
+		  <!--  
 		  <div class="tab">Birthday:
 		    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
 		    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
@@ -44,7 +43,7 @@
 		  <div class="tab">Login Info:
 		    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
 		    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-		  </div>
+		  </div>-->
 		  <div style="overflow:auto;">
 		    <div style="float:right;">
 		      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
