@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,16 +20,18 @@ import javax.servlet.http.HttpSession;
 
 import br.usjt.ads.best.model.entity.Campeonato;
 import br.usjt.ads.best.model.entity.Status;
+import br.usjt.ads.best.model.entity.Time;
 import br.usjt.ads.best.model.entity.Usuario;
 import br.usjt.ads.best.model.service.CampeonatoService;
 import br.usjt.ads.best.model.service.StatusService;
+import br.usjt.ads.best.model.service.TimeService;
 import br.usjt.ads.best.model.service.UsuarioService;
 
 /**
  * Servlet implementation class ManterFilmesController
  */
 @WebServlet("/manterdados.do")
-public class ManterFilmesController extends HttpServlet {
+public class ManterDadosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,8 +41,10 @@ public class ManterFilmesController extends HttpServlet {
 		RequestDispatcher dispatcher;
 		UsuarioService UService = null;
 		StatusService sService = null;
+		TimeService tService = null;
 		CampeonatoService cService = null;
 		Usuario usuario = null;
+		Time time = null;
 		Campeonato campeonato = null;
 		HttpSession session;
 		
@@ -58,7 +63,8 @@ public class ManterFilmesController extends HttpServlet {
 		String idP3 = request.getParameter("pontos3");
 		String idP4 = request.getParameter("pontos4");
 		
-		
+		/*Times*/
+		String times = request.getParameter("nomes_times");
 		
 
 		switch (acao) {
@@ -67,7 +73,9 @@ public class ManterFilmesController extends HttpServlet {
 			UService = new UsuarioService();
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
-			boolean validacao = UService.consultarLogin(usuario);
+			
+			boolean validacao = false;
+			validacao = UService.consultarLogin(usuario);
 			
 			if(validacao == true)
 			{
@@ -79,7 +87,9 @@ public class ManterFilmesController extends HttpServlet {
 				dispatcher.forward(request, response);
 				break;
 			}
-			else if(validacao == false){
+			else{
+					dispatcher = request.getRequestDispatcher("login.jsp");
+					dispatcher.forward(request, response);
 					break;
 				}
 
@@ -93,6 +103,26 @@ public class ManterFilmesController extends HttpServlet {
 			usuario.setEmail(email);
 			
 			int id1 = UService.inserirUsuario(usuario);
+			
+			usuario = new Usuario();
+			UService = new UsuarioService();
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+			boolean validacaoCadastro = UService.consultarLogin(usuario);
+			
+			if(validacaoCadastro == true)
+			{
+				usuario = UService.buscarUsuarioId(usuario);
+				session = request.getSession();
+				session.setAttribute("usuario", usuario);
+				
+				dispatcher = request.getRequestDispatcher("usuario.jsp");
+				dispatcher.forward(request, response);
+				break;
+			}
+			else if(validacaoCadastro == false){
+					break;
+			}
 			
 			dispatcher = request.getRequestDispatcher("usuario.jsp");
 			dispatcher.forward(request, response);
@@ -142,6 +172,24 @@ public class ManterFilmesController extends HttpServlet {
 			
 			
 			dispatcher = request.getRequestDispatcher("usuario.jsp");
+			dispatcher.forward(request, response);
+			break;
+			
+
+		case "inserirTimes":
+			String arrayTimes[] = times.split(Pattern.quote(","));
+			tService = new TimeService();
+			time = new Time();
+			
+			String nomeTime = null;
+			for(int i=0; i < arrayTimes.length; i++ )
+			{
+				nomeTime = arrayTimes[i];
+				time.setNome(nomeTime);
+				tService.inserirUsuario(time);
+			}
+			
+			dispatcher = request.getRequestDispatcher("dadosDoCampeonato.jsp");
 			dispatcher.forward(request, response);
 			break;
 		}

@@ -61,7 +61,6 @@ public class UsuarioDAO {
 			e.printStackTrace();
 			throw new IOException(e);
 		}
-		
 		if(usu.equals(usuario.getLogin()) && password.equals(usuario.getSenha()))
 		{
 			return true;

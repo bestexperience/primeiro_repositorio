@@ -23,7 +23,7 @@
 		  <h1>Criar Campeonato</h1>
 		  <!-- One "tab" for each step in the form: -->
 		  <div class="tab">Nome do Campeonato
-		  	<p><input placeholder="Last name..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" ></p>
+		  	<p><input placeholder="Id..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" ></p>
 		    <p><input placeholder="Nome..." oninput="this.className = ''" name="nome_campeonato"></p>
 		  </div>
 		 
@@ -33,13 +33,11 @@
 		  	 <p><input placeholder="..." oninput="this.className = ''" name="pontos${status.id}"></p>
 		    </c:forEach>
 		  </div>
-		  <!--  
-		  <div class="tab">Birthday:
-		    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-		    <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-		    <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+		    <!--  
+		  <div class="tab">Time
+		    <p><input placeholder="Nome.." oninput="this.className = ''" name="nome_time"></p>
 		  </div>
-		  
+		
 		  <div class="tab">Login Info:
 		    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
 		    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
@@ -52,8 +50,6 @@
 		  </div>
 		  <!-- Circles which indicates the steps of the form: -->
 		  <div style="text-align:center;margin-top:40px;">
-		    <span class="step"></span>
-		    <span class="step"></span>
 		    <span class="step"></span>
 		    <span class="step"></span>
 		  </div>
