@@ -4,24 +4,24 @@
 <html>
 <head>
 <title>Insert title here</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+           
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <link rel="stylesheet" type="text/css" href="css/form-style.css">
-        
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      
-      <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<c:import url="MenuUsuario.jsp"/>
+	
 	<div class="container">
 		<form id="regForm" action="manterdados.do?acao=cadastrarCampeonato" method="post">
 		  <h1>Criar Campeonato</h1>
 		  <!-- One "tab" for each step in the form: -->
-		  <div class="tab">Nome do Campeonato
+		  <div class="tab"><label>Nome do Campeonato</label>
 		  	<p><input placeholder="Id..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" ></p>
 		    <p><input placeholder="Nome..." oninput="this.className = ''" name="nome_campeonato"></p>
 		  </div>

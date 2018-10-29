@@ -14,13 +14,12 @@
 	<c:import url="Menu.jsp"/>
   <!--Jogos Master-->
 <div class="container">
-	<div class="col-md-3">
-    <img src="img/screen.jpg" class="img-circle" alt="Cinque Terre" width="304" height="300">
+	<div class=" col-md-12 text-center pad">
+    	<img src="img/screen.jpg" class="img-circle" alt="Cinque Terre" width="304" height="300">
     </div>
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-    <form action="manterdados.do" method="post">
+    
+    <form action="manterdados.do" method="post" id="regForm">
+    
       <div class="form-group">
         <div class="input-group">  
             <span class="input-group-addon">
@@ -39,10 +38,11 @@
       </div>
       <div align="center">
         <button type="submit" class="btn btn-warning" name="acao" value="logar">Acessar</button>
+        <button type="reset" class="btn btn-warning" name="acao" value="resetar">Limpar</button>
       </div>
     </form>
     </div>
-</div>  
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

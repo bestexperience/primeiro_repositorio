@@ -19,6 +19,10 @@ h1 {
   text-align: center;  
 }
 
+label{
+	font-weight:700;
+}
+
 input {
   padding: 10px;
   width: 100%;

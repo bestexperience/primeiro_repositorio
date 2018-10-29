@@ -14,15 +14,19 @@
 
 .form-control{
 	border-radius: 0px;
-	padding: 10px;
+	padding: 20px;
 	font-family: Raleway;
 	border: 1px solid #aaaaaa;
 	font-size: 17px;
 	width: 100%;
 }
 
+.pad{
+	padding-bottom: 30px;
+}
+
 body {
-    font-family: "iherit", sans-serif;
+   
 }
 
 #navstyle{

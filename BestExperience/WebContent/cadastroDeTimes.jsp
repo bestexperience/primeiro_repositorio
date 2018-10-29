@@ -5,8 +5,12 @@
 <head>
   <title>Cadastro de Times</title>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap-tagsinput.css">
   
   <link rel="stylesheet" href="./css/style.css">
@@ -16,11 +20,11 @@
 		
 	<div class="jumbotron text-center">
 	  <h1>Digite os nomes dos times no campo abaixo</h1>
-	  <p>Não apertar enter. Após o nome de um time utilize barra de espaço e virgula para inserir.</p> 
+	  <p>Não apertar enter. Após o nome de um time utilize barra de espaço e virgula para inserir.</p>
 	</div>
 	  
 	<div class="container">
-	    <form action="manterdados.do" method="post">
+	    <form action="manterdados.do" method="post" id="regForm">
 	    	<label>Nome dos Times</label>
 	    	<br />
 	        <input type="text" data-role="tagsinput" name="nomes_times" required><br/><br/>

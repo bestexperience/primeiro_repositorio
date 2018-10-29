@@ -12,7 +12,9 @@
 <body>
 	<c:import url="Menu.jsp"/>
     <div id="main" class="container">
-      <h2>Preencha o formulário para definir um novo usuário</h2>
+    <div class=" col-md-12 text-center">
+		<img src="img/cadUsuario.png" class="rounded" alt="Cinque Terre" width="304" height="300">
+	</div>
 
         <form action="manterdados.do" method="post" id="regForm">
           <div class="form-group">

@@ -38,7 +38,11 @@
                     <li><a href="#">Estadios</a></li>
                   </ul>
                 </li>
+               
               </ul>
+              <ul class="nav navbar-nav navbar-right">
+     			 <li><a href="login.jsp"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+    		  </ul>
             </div>
           </div>
 	</nav>  
