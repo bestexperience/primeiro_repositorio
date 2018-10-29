@@ -15,10 +15,6 @@ body {
   min-width: 300px;
 }
 
-p{
-    border-radius: 10% !important;
-}
-
 h1 {
   text-align: center;  
 }
@@ -40,7 +36,7 @@ input.invalid {
 .tab {
   display: none;
 }
-
+/*
 button {
   background-color: #FFA500;
   color: #ffffff;
@@ -49,15 +45,16 @@ button {
   font-size: 17px;
   font-family: Raleway;
   cursor: pointer;
-}
-
+}*/
+/*
 button:hover {
   opacity: 0.8;
-}
+}*/
 
+/*
 #prevBtn {
   background-color: #bbbbbb;
-}
+}*/
 
 /* Make circles that indicate the steps of the form: */
 .step {

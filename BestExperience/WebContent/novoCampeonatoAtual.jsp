@@ -12,12 +12,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+      
+      <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<c:import url="MenuUsuario.jsp"/>
-	
 	<div class="container">
 		<form id="regForm" action="manterdados.do?acao=cadastrarCampeonato" method="post">
 		  <h1>Criar Campeonato</h1>
@@ -33,19 +32,11 @@
 		  	 <p><input placeholder="..." oninput="this.className = ''" name="pontos${status.id}"></p>
 		    </c:forEach>
 		  </div>
-		    <!--  
-		  <div class="tab">Time
-		    <p><input placeholder="Nome.." oninput="this.className = ''" name="nome_time"></p>
-		  </div>
-		
-		  <div class="tab">Login Info:
-		    <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-		    <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-		  </div>-->
+		  
 		  <div style="overflow:auto;">
 		    <div style="float:right;">
-		      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-		      <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+		      <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-secondary">Anterior</button>
+		      <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-warning">Proximo</button>
 		    </div>
 		  </div>
 		  <!-- Circles which indicates the steps of the form: -->
@@ -58,6 +49,8 @@
     
     <script language="JavaScript" src="js/form-js.js">
 	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
     
 </body>
 </html>

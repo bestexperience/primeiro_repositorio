@@ -1,6 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  margin-top:0px;
+  font-family: Raleway;
+  padding: 20px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.form-control{
+	border-radius: 0px;
+	padding: 10px;
+	font-family: Raleway;
+	border: 1px solid #aaaaaa;
+	font-size: 17px;
+	width: 100%;
+}
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: "iherit", sans-serif;
 }
 
 #navstyle{
@@ -52,6 +74,9 @@ body {
 .span-no-display{
   			display:none;
 }
+
+
+
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
