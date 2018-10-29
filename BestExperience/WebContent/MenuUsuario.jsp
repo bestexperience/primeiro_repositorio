@@ -26,7 +26,7 @@
               <ul class="nav navbar-nav">
                 <li><a href="usuario.jsp">Perfil</a></li>
                 <li><a href="manterdados.do?acao=carregarStatus">Novo Campeonato+</a></li>
-                <li><a href="cadastroDeTimes.jsp">Inserir Times</a></li>
+                <li><a href="cadastroDeTimesNovo.jsp">Inserir Times</a></li>
                 <li><a href="#">Campeonatos</a></li>
                 <li><a href="#">Inserir Resultados</a></li>
                 <li class="dropdown">

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>Novo Campeonato</title>
 	<meta charset="utf-8">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,6 +18,10 @@
 	<c:import url="MenuUsuario.jsp"/>
 	
 	<div class="container">
+		<div class=" col-md-12 text-center">
+			<img src="img/screen.jpg" class="rounded" alt="Cinque Terre" width="" height="300">
+		</div>
+	
 		<form id="regForm" action="manterdados.do?acao=cadastrarCampeonato" method="post">
 		  <h1>Criar Campeonato</h1>
 		  <!-- One "tab" for each step in the form: -->

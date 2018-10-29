@@ -12,6 +12,11 @@
   min-width: 300px;
 }
 
+.regFormMargin{
+	margin-bottom: 0px !important;
+	padding-bottom: 0px !important;
+}
+
 .form-control{
 	border-radius: 0px;
 	padding: 20px;

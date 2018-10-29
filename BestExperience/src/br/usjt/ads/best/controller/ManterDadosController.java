@@ -177,19 +177,13 @@ public class ManterDadosController extends HttpServlet {
 			
 
 		case "inserirTimes":
-			String arrayTimes[] = times.split(Pattern.quote(","));
 			tService = new TimeService();
 			time = new Time();
 			
-			String nomeTime = null;
-			for(int i=0; i < arrayTimes.length; i++ )
-			{
-				nomeTime = arrayTimes[i];
-				time.setNome(nomeTime);
-				tService.inserirUsuario(time);
-			}
+			time.setNome(times);
+			tService.inserirUsuario(time);
 			
-			dispatcher = request.getRequestDispatcher("dadosDoCampeonato.jsp");
+			dispatcher = request.getRequestDispatcher("usuario.jsp");
 			dispatcher.forward(request, response);
 			break;
 		}

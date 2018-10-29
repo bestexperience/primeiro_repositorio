@@ -31,7 +31,23 @@
 	        <button type="submit" class="btn btn-warning" name="acao" value="inserirTimes">Cadastrar</button>
 	    </form>
 	</div>
-    
+     <!-- 
+     	Parte do controler 
+     	
+     	String arrayTimes[] = times.split(Pattern.quote(","));
+			tService = new TimeService();
+			time = new Time();
+			
+			String nomeTime = null;
+			for(int i=0; i < arrayTimes.length; i++ )
+			{
+				nomeTime = arrayTimes[i];
+				time.setNome(nomeTime);
+				tService.inserirUsuario(time);
+			}
+     
+     
+      -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
 	</script>
 	    <script src="js/bootstrap.min.js">
