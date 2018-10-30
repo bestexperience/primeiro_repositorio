@@ -7,7 +7,33 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
           <link rel="stylesheet" href="./css/style.css">
-      
+          <script type="text/javascript" src="js/jquery-1.6.2.js"></script>
+          
+      		<script type="text/javascript">
+	      		$(document).ready(function(){
+	      			$('#add-btn').click(function(){
+	      				var input_val;
+	      				var nomes_times = $('#new-opt').val();
+	      				$.ajax({
+	      					type:'POST',
+	      					data: {
+	      						
+	      						nomes_times: nomes_times,
+	      						acao:'inserirTimes'
+	      						
+	      					},
+	      					
+	      					url:'manterdados.do',
+	      					success: function(result){
+	      							$('#mySelect').html(result);
+	      							document.getElementById('new-opt').value='';
+	      					}
+	      					
+	      				});
+	      			});
+	      		});
+      		</script>
+      		
     </head>
 <body>
 	<c:import url="MenuUsuario.jsp"/>
@@ -21,7 +47,7 @@
         <h1 align="center">Inserir Times</h1>
 	      <div class="form-group">
 		  	  <label>Times</label>
-		   	  <input type="text" class="form-control" id="new-opt" placeholder="" name="nomes_times">
+		   	  <input type="text" class="form-control" id="new-opt" placeholder="">
 		  	  <small id="idHelp" class="form-text text-muted">Informe os times acima</small>
 		  </div>
             
@@ -31,12 +57,11 @@
 	          </select>
           </div>
           <br />
-          
-          <div align="center">
-            <button id="add-btn" class="btn btn-warning" name="acao" value="inserirTimes">Adicionar time</button>
-            <button onclick="myFunction()" class="btn btn-warning">Remover time selecionado</button>
-        </div>
         </form>
+        <div align="center">
+            <button id="add-btn" class="btn btn-warning">Adicionar time</button>
+            <button onclick="myFunction()" class="btn btn-warning">Remover time selecionado</button>
+         </div>
         
     </div>
 	<script src="js/form-select.js"></script>

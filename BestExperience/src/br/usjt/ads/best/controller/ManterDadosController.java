@@ -1,6 +1,7 @@
 package br.usjt.ads.best.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
@@ -177,14 +178,18 @@ public class ManterDadosController extends HttpServlet {
 			
 
 		case "inserirTimes":
+			response.setContentType("text/plain");
+			PrintWriter out = response.getWriter();
+			
 			tService = new TimeService();
-			time = new Time();
 			
-			time.setNome(times);
-			tService.inserirUsuario(time);
-			
+			tService.inserirUsuario(times);
+			/*
 			dispatcher = request.getRequestDispatcher("usuario.jsp");
-			dispatcher.forward(request, response);
+			dispatcher.forward(request, response);*/
+			
+			
+			out.println("<option>" + times + "</option>");
 			break;
 		}
 			

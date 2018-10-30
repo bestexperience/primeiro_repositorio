@@ -12,7 +12,7 @@ public class TimeService {
 		this.dao = new TimeDAO();
 	}
 	
-	public void inserirUsuario(Time time) throws IOException{
+	public void inserirUsuario(String time) throws IOException{
 		dao.inserirTime(time);
 	}
 }	
