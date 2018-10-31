@@ -12,11 +12,10 @@ public class UsuarioService {
 		dao = new UsuarioDAO();
 	}
 	
-	public boolean consultarLogin(Usuario usuario) throws IOException{
-		boolean validacao = dao.buscarUsuario(usuario);
-		return validacao;
+	public Usuario consultarLogin(Usuario usuario) throws IOException{
+		usuario = dao.buscarUsuario(usuario);
+		return usuario;
 	}
-	
 	public int inserirUsuario(Usuario usuario) throws IOException {
 		int id = dao.inserirUsuario(usuario);
 		return id;

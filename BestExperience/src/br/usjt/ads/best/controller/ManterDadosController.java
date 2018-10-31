@@ -75,12 +75,14 @@ public class ManterDadosController extends HttpServlet {
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
 			
-			boolean validacao = false;
-			validacao = UService.consultarLogin(usuario);
+			Usuario usuAutenticado = UService.consultarLogin(usuario);
 			
-			if(validacao == true)
+			if(usuAutenticado != null)
 			{
+				/*HttpSession sessao = request.getSession();
+				sessao.setAttribute("uauAutenticado", validacao);*/
 				usuario = UService.buscarUsuarioId(usuario);
+				
 				session = request.getSession();
 				session.setAttribute("usuario", usuario);
 				
@@ -89,8 +91,7 @@ public class ManterDadosController extends HttpServlet {
 				break;
 			}
 			else{
-					dispatcher = request.getRequestDispatcher("login.jsp");
-					dispatcher.forward(request, response);
+					response.sendRedirect("errorLogin.jsp");
 					break;
 				}
 
@@ -109,11 +110,15 @@ public class ManterDadosController extends HttpServlet {
 			UService = new UsuarioService();
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
-			boolean validacaoCadastro = UService.consultarLogin(usuario);
 			
-			if(validacaoCadastro == true)
+			Usuario usuAutenticado2 = UService.consultarLogin(usuario);
+			
+			if(usuAutenticado2 != null)
 			{
+				/*HttpSession sessao = request.getSession();
+				sessao.setAttribute("uauAutenticado", validacao);*/
 				usuario = UService.buscarUsuarioId(usuario);
+				
 				session = request.getSession();
 				session.setAttribute("usuario", usuario);
 				
@@ -121,14 +126,10 @@ public class ManterDadosController extends HttpServlet {
 				dispatcher.forward(request, response);
 				break;
 			}
-			else if(validacaoCadastro == false){
+			else{
+					response.sendRedirect("errorLogin.jsp");
 					break;
-			}
-			
-			dispatcher = request.getRequestDispatcher("usuario.jsp");
-			dispatcher.forward(request, response);
-			break;
-			
+			}			
 
 		case "carregarStatus":
 			

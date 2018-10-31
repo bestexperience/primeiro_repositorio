@@ -39,35 +39,30 @@ public class UsuarioDAO {
 		return id;
 	}
 	
-	public boolean buscarUsuario(Usuario usuario) throws IOException{
-		String sql = "select * from usuario where login = ?";
+	public Usuario buscarUsuario(Usuario usuario) throws IOException{
+		Usuario usuAutenticado = null;
 		
-		/*Validação do usuario*/
-		String usu = usuario.getLogin();
-		String password = usuario.getSenha();
+		String sql = "select * from usuario where login = ? and senha = ?";
+		
 		
 		try(Connection conn = ConnectionFactory.getConnection();
 				PreparedStatement pst = conn.prepareStatement(sql);){
 			pst.setString(1, usuario.getLogin());
+			pst.setString(2, usuario.getSenha());
 			
 			try(ResultSet rs = pst.executeQuery();){
 		
-				while(rs.next()) {
-					usuario.setLogin(rs.getString("login"));
-					usuario.setSenha(rs.getString("senha"));
+				if(rs.next()) {
+					usuAutenticado = new Usuario();
+					usuAutenticado.setLogin(rs.getString("login"));
+					usuAutenticado.setSenha(rs.getString("senha"));
 				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new IOException(e);
 		}
-		if(usu.equals(usuario.getLogin()) && password.equals(usuario.getSenha()))
-		{
-			return true;
-		}
-		else {
-			return false;
-		}
+		return usuAutenticado;
 	}
 	
 	public Usuario buscarUsuarioId(Usuario usuario) throws IOException{

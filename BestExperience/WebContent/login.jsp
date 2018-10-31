@@ -38,7 +38,7 @@
       </div>
       <div align="center">
         <button type="submit" class="btn btn-warning" name="acao" value="logar">Acessar</button>
-        <button type="reset" class="btn btn-warning" name="acao" value="resetar">Limpar</button>
+        <button type="reset" class="btn btn-warning" value="resetar">Limpar</button>
       </div>
     </form>
     </div>
