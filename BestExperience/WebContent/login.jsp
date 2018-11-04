@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
+
 	<c:import url="Menu.jsp"/>
   <!--Jogos Master-->
 <div class="container">
