@@ -12,13 +12,14 @@ import br.usjt.ads.best.model.entity.Usuario;
 public class CampeonatoDAO {
 	public int inserirCampeonato(Campeonato campeonato, Usuario usuario) throws IOException {
 		int id = -1;
-		String sql = "insert into campeonato (nome, usuario_id) values (?,?)";
+		String sql = "insert into campeonato (nome, numeroRodadas, usuario_id) values (?,?,?)";
 		
 		try(Connection conn = ConnectionFactory.getConnection();
 			PreparedStatement pst = conn.prepareStatement(sql);){
 			
 			pst.setString(1, campeonato.getNome());
-			pst.setInt(2, usuario.getId());
+			pst.setInt(2, campeonato.getNumeroRodadas());
+			pst.setInt(3, usuario.getId());
 			pst.execute();
 			
 			//obter o id criado

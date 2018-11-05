@@ -58,6 +58,7 @@ public class ManterDadosController extends HttpServlet {
 		
 		/*Campeonato*/
 		String nomeCampeonato = request.getParameter("nome_campeonato");
+		String numeroDeRodadas = request.getParameter("numero_rodadas");
 		/*Status - Pontos*/
 		String idP1 = request.getParameter("pontos1");
 		String idP2 = request.getParameter("pontos2");
@@ -154,9 +155,10 @@ public class ManterDadosController extends HttpServlet {
 			sService = new StatusService();
 			
 			campeonato.setNome(nomeCampeonato);
+			campeonato.setNumeroRodadas(Integer.parseInt(numeroDeRodadas));
 			usuario.setId(Integer.parseInt(id));
 			int idCampeonato = cService.inserirCampeonato(campeonato, usuario);
-			
+
 			
 			int id10 = 0; 
 			int p1 = Integer.parseInt(idP1);

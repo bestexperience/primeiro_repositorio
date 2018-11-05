@@ -25,15 +25,18 @@
 		<form id="regForm" action="manterdados.do?acao=cadastrarCampeonato" method="post">
 		  <h1>Criar Campeonato</h1>
 		  <!-- One "tab" for each step in the form: -->
-		  <div class="tab"><label>Nome do Campeonato</label>
-		  	<p><input placeholder="Id..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" ></p>
-		    <p><input placeholder="Nome..." oninput="this.className = ''" name="nome_campeonato"></p>
+		  <div class="tab"><label>Dados do Campeonato</label>
+		  	<p><input placeholder="Id..."  readonly oninput="this.className = ''" name="id" value="${usuario.id}" >
+		  	<small id="idHelp" class="form-text text-muted">Seu ID será incluso como um dado do campeonato.</small>
+		  	</p>
+		  	
+		    <p><input placeholder="Nome do campeonato" oninput="this.className = ''" name="nome_campeonato"></p>
+		    <p><input type="number" placeholder="Numero de rodadas" oninput="this.className = ''" name="numero_rodadas"></p>
 		  </div>
 		 
 		  <div class="tab">Configurando os pontos:<br /><br/>
 		  	<c:forEach var="status" items="${status}">
-		  	 <label for="nome" value="${status.id}">${status.nome}</label>
-		  	 <p><input placeholder="..." oninput="this.className = ''" name="pontos${status.id}"></p>
+		  	 <p><input placeholder="${status.nome}" oninput="this.className = ''" name="pontos${status.id}"></p>
 		    </c:forEach>
 		  </div>
 		  
